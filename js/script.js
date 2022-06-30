@@ -106,7 +106,9 @@ function showModal(name, gender, genderProb, country, countryProb, age) {
       gender === "male" ? "pilietis" : "pilietė"
     }, o tikėtinas amžius yra <span class="modal-text-large">${age}m</span>.</p>`;
   } else {
-    MODAL.innerHTML = `<p class="modal-text">Asmuo, kurio vardas <span class="modal-text-large">${name}</span>, su <span class="modal-text-large">${Math.round(
+    MODAL.innerHTML = `<p class="modal-text">Asmuo, kurio vardas <span class="modal-text-large">${
+      name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
+    }</span>, su <span class="modal-text-large">${Math.round(
       genderProb * 100
     )}%</span> tikimybe yra <span class="modal-text-large">${
       gender === "male" ? "vyriškos giminės" : "moteriškos giminės"
@@ -117,6 +119,6 @@ function showModal(name, gender, genderProb, country, countryProb, age) {
 }
 
 CLOSE_BTN.addEventListener("click", () => {
-  INPUT.textContent = "";
+  INPUT.value = "";
   SHOW_MODAL.style.display = "none";
 });
